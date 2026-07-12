@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "610890671407",
+    "project_id": "rasidak-144d9",
+    "storage_bucket": "rasidak-144d9.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:610890671407:android:1446d30da55cef3f6a2dda",
+        "android_client_info": {
+          "package_name": "com.example.rasidak"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAb7ebdI0wl-0iwot_w5s7tSsVUJ7phZks"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
