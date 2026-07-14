@@ -43,14 +43,14 @@ class settingPage extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.primaryText,
+                    color: Colors.white,
                   ),
                 )),
                 IconButton(
                   onPressed: () {},
                   icon: Icon(
                     Icons.arrow_forward,
-                    color: AppColors.primaryText,
+                    color: Colors.white,
                     size: 20,
                   ),
                 ),
@@ -64,7 +64,7 @@ class settingPage extends StatelessWidget {
                 child: Text(
                   "أح",
                   style: TextStyle(
-                    color: AppColors.primaryText,
+                    color: Colors.white,
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
@@ -75,7 +75,7 @@ class settingPage extends StatelessWidget {
               "أحمد محمد الخالدي",
               textDirection: TextDirection.rtl,
               style: TextStyle(
-                color: AppColors.primaryText,
+                color: Colors.white,
                 fontWeight: FontWeight.w400,
                 fontSize: 22,
               ),

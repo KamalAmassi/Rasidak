@@ -72,13 +72,15 @@ class _HomepageState extends State<Homepage> {
                   );
                 }
 
-                return ListView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: list.length,
-                  itemBuilder: (context, index) {
-                    return _buildUsersBox(size, list[index]);
-                  },
+                return Obx(
+                  () => ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: list.length,
+                    itemBuilder: (context, index) {
+                      return _buildUsersBox(size, list[index]);
+                    },
+                  ),
                 );
               })
             ],
@@ -248,7 +250,7 @@ class _HomepageState extends State<Homepage> {
                       Obx(() => Text(
                         "${lang.t("أخر تعديل")} ${customer.lastUpdate.day}.${customer.lastUpdate.month}.${customer.lastUpdate.year}",
                         textDirection: TextDirection.rtl,
-                        style: TextStyle(color: AppColors.primaryText, fontSize: 16),
+                        style: TextStyle(color: Colors.white, fontSize: 16),
                       )),
                     ],
                   ),

@@ -23,14 +23,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         icon: Icon(
           Icons.arrow_back,
           size: 25,
-          color: AppColors.primaryText,
+          color: Colors.white,
         ),
       ),
       title: Text(
         name,
         textDirection: TextDirection.rtl,
         style: TextStyle(
-          color: AppColors.primaryText,
+          color: Colors.white,
           fontSize: 25,
           fontWeight: FontWeight.bold,
         ),

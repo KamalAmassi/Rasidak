@@ -88,7 +88,7 @@ class _DebtDetailsState extends State<DebtDetails> {
                       const SizedBox(height: 10),
 
                       Obx(() {
-                        final total = _liveCustomer.totalDebt; // ← بدل الحساب المحلي
+                        final total = _liveCustomer.totalDebt;
                         return Container(
                           width: double.infinity,
                           padding: const EdgeInsets.all(10),
@@ -164,7 +164,7 @@ class _DebtDetailsState extends State<DebtDetails> {
                           return Center(
                             child: Text(
                               lang.t("لا يوجد ديون لهذا الزبون"),
-                              style: const TextStyle(fontSize: 18),
+                              style: TextStyle(fontSize: 18,color: AppColors.primaryText),
                             ),
                           );
                         }
@@ -206,7 +206,7 @@ class _DebtDetailsState extends State<DebtDetails> {
                           return Center(
                             child: Text(
                               lang.t("لا يوجد مدفوعات لهذا الزبون"),
-                              style: const TextStyle(fontSize: 18),
+                              style:  TextStyle(fontSize: 18,color: AppColors.primaryText),
                             ),
                           );
                         }

@@ -43,7 +43,7 @@ class DebtRemoteDataSource {
     required String uid,
     required String customerId,
   }) async {
-    final snapshot = await firestore
+    final debtsSnapshot = await firestore
         .collection('users')
         .doc(uid)
         .collection('customers')
@@ -51,10 +51,25 @@ class DebtRemoteDataSource {
         .collection('debts')
         .get();
 
-    double total = 0;
-    for (var doc in snapshot.docs) {
-      total += (doc.data()['amount'] as num).toDouble();
+    final paymentsSnapshot = await firestore
+        .collection('users')
+        .doc(uid)
+        .collection('customers')
+        .doc(customerId)
+        .collection('payments')
+        .get();
+
+    double totalDebts = 0;
+    for (var doc in debtsSnapshot.docs) {
+      totalDebts += (doc.data()['amount'] as num).toDouble();
     }
+
+    double totalPayments = 0;
+    for (var doc in paymentsSnapshot.docs) {
+      totalPayments += (doc.data()['amount'] as num).toDouble();
+    }
+
+    final remaining = totalDebts - totalPayments;
 
     await firestore
         .collection('users')
@@ -62,7 +77,7 @@ class DebtRemoteDataSource {
         .collection('customers')
         .doc(customerId)
         .update({
-      'totalDebt': total,
+      'totalDebt': remaining < 0 ? 0 : remaining,
       'lastUpdate': FieldValue.serverTimestamp(),
     });
   }

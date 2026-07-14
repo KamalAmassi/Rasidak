@@ -9,7 +9,7 @@ class CustomButton extends StatelessWidget {
     super.key,
     required this.name, required this.callback,
   });
-
+  
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -24,7 +24,7 @@ class CustomButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(15)
         ),
         child: Text(name,textDirection: TextDirection.rtl,style: TextStyle(
-          color: AppColors.primaryText,
+          color: Colors.white,
           fontSize: 25,
           fontWeight: FontWeight.bold
         ),),
