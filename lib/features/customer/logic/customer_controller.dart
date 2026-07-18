@@ -64,10 +64,13 @@ class CustomerController extends GetxController {
         );
         return;
       }
-
+      
       await repository.addCustomer(customer, uid: uid);
 
+      await fetchCustomers(); 
+
       Get.back();
+      
       Get.snackbar(
         'تم بنجاح ✓',
         'تمت إضافة الزبون بنجاح',

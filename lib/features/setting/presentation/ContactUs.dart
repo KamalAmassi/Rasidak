@@ -15,6 +15,7 @@ class ContactUs extends StatelessWidget {
 
     return Obx(() => Scaffold(
       appBar: CustomAppBar(name: lang.t("تواصل معنا")),
+      backgroundColor: AppColors.backgroundColor,
       body: ListView(
         children: [
           const SizedBox(height: 20),
@@ -73,7 +74,7 @@ class ContactUs extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         border: Border.all(width: 1.5, color: AppColors.borderColor),
-        color: AppColors.backgroundColor,
+        color: AppColors.cardColor,
       ),
       child: Row(
         textDirection: TextDirection.rtl,
@@ -126,7 +127,7 @@ class ContactUs extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       margin: const EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
-        color: AppColors.backgroundColor,
+        color: AppColors.cardColor,
         borderRadius: BorderRadius.circular(8),
         border: Border.all(color: AppColors.borderColor, width: 1.5),
       ),

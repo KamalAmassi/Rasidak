@@ -56,18 +56,20 @@ class _HomepageState extends State<Homepage> {
                 final list = controller.filteredCustomers;
 
                 if (list.isEmpty) {
-                  return Padding(
-                    padding: const EdgeInsets.all(40),
-                    child: Center(
-                      child: Obx(() => Text(
-                        controller.searchQuery.value.isEmpty
-                            ? lang.t("لا يوجد زبائن بعد")
-                            : lang.t("لا يوجد نتائج مطابقة"),
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: AppColors.secondaryText,
-                        ),
-                      )),
+                  return Obx(
+                    ()=> Padding(
+                      padding: const EdgeInsets.all(40),
+                      child: Center(
+                        child: Obx(() => Text(
+                          controller.searchQuery.value.isEmpty
+                              ? lang.t("لا يوجد زبائن بعد")
+                              : lang.t("لا يوجد نتائج مطابقة"),
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: AppColors.secondaryText,
+                          ),
+                        )),
+                      ),
                     ),
                   );
                 }

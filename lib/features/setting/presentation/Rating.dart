@@ -26,6 +26,7 @@ class Rating extends StatelessWidget {
     TextEditingController comment = TextEditingController();
 
     return Obx(()=>Scaffold(
+      backgroundColor: AppColors.backgroundColor,
       appBar: CustomAppBar(name: lang.t("تقييم التطبيق")),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(vertical: sectionSpacing),
@@ -105,7 +106,7 @@ class Rating extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: horizontalPadding),
       padding: EdgeInsets.symmetric(vertical: h * 0.025),
       decoration: BoxDecoration(
-        color: AppColors.backgroundColor,
+        color: AppColors.cardColor,
         borderRadius: BorderRadius.circular(10),
         border: Border.all(color: AppColors.borderColor, width: 1),
       ),

@@ -20,6 +20,7 @@ class SharePage extends StatelessWidget {
     final lang = Get.find<LanguageController>();
 
     return Obx(()=>Scaffold(
+      backgroundColor: AppColors.backgroundColor,
       appBar: CustomAppBar(name: lang.t("شارك التطبيق")),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(vertical: h * 0.02),

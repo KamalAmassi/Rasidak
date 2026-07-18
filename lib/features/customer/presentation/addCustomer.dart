@@ -55,7 +55,7 @@ class _AddCustomerState extends State<AddCustomer> {
     final double balanceBoxHeight = (h * 0.075).clamp(48.0, 60.0);
 
     Widget buildLabel(String labelKey, String badgeKey) {
-      return Obx(() => Row(
+      return Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Text(
@@ -79,7 +79,7 @@ class _AddCustomerState extends State<AddCustomer> {
             ),
           ),
         ],
-      ));
+      );
     }
 
     return Obx(() => Padding(
@@ -178,7 +178,9 @@ class _AddCustomerState extends State<AddCustomer> {
                       ),
 
                       InkWell(
-                        onTap: () async {
+                        onTap: controller.isLoading.value 
+                        ? null // تعطيل الزر لحماية قاعدة البيانات أثناء معالجة الطلب
+                        : () async {
                           if (name.text.trim().isEmpty) {
                             Get.snackbar(
                               lang.t("تنبيه"),
@@ -195,8 +197,13 @@ class _AddCustomerState extends State<AddCustomer> {
                             debtLevel: "simple",
                             lastUpdate: DateTime.now(),
                           );
+                          
                           await controller.addCustomer(customer);
-                          homeController.goHome();
+                          
+                          // الانتقال إلى الصفحة الرئيسية فقط إذا تمت العملية بنجاح ولم يعد هناك تحميل
+                          if (!controller.isLoading.value) {
+                            homeController.goHome();
+                          }
                         },
                         borderRadius: BorderRadius.circular(borderRadius),
                         child: Container(
@@ -207,14 +214,16 @@ class _AddCustomerState extends State<AddCustomer> {
                             borderRadius: BorderRadius.circular(borderRadius),
                             color: AppColors.primaryColor,
                           ),
-                          child: Text(
-                            lang.t("حفظ الزبون"),
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: buttonFontSize,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                          child: controller.isLoading.value
+                              ? const CircularProgressIndicator(color: Colors.white)
+                              : Text(
+                                  lang.t("حفظ الزبون"),
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: buttonFontSize,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
                         ),
                       ),
                     ],
